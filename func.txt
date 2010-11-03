@@ -1,0 +1,19 @@
+glViewport
+glVertex|glMultMatrix|glLoadMatrix|glRotate|glScale|glTranslate|glFrustum
+glMatrixMode
+
+glBegin		0x00000001
+glEnd		0x00000002
+glVertex3f	0x80000303
+glColor		0x80000304
+glMatrixMode	0x00000010
+glMultMatrix	0x80001011
+glLoadIdentity	0x00000012
+glLoadMatrix	0x80001013
+glPushMatrix	0x00000014
+glPopMatrix	0x00000015
+glRotate	0x80000416
+glScale		0x80000317
+glTranslate	0x80000318
+glViewport	0x80000419
+glFrustum	0x8000061A
