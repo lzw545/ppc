@@ -1,6 +1,7 @@
 glViewport
-glVertex|glMultMatrix|glLoadMatrix|glRotate|glScale|glTranslate|glFrustum
+glVertex3f|glMultMatrix|glLoadMatrix|glRotate|glScale|glTranslate|glFrustum
 glMatrixMode
+glMultMatrix|glLoadMatrix|glRotate|glScale|glTranslate
 
 glBegin		0x00000001
 glEnd		0x00000002
@@ -12,7 +13,7 @@ glLoadIdentity	0x00000012
 glLoadMatrix	0x80001013
 glPushMatrix	0x00000014
 glPopMatrix	0x00000015
-glRotate	0x80000416
+glRotate	0x80000216
 glScale		0x80000317
 glTranslate	0x80000318
 glViewport	0x80000419
