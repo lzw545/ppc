@@ -78,31 +78,102 @@ while ($source =~ m/(gl.[^\(]*)\(\s*([^;]*)\);/sg) {
 	$c = cos($angle*PI/180);
 	$s = sin($angle*PI/180);
 
-	$arg_array[0] = $x**2*(1-$c)+$c;
-	$arg_array[1] = $x*$y*(1-$c)-$z*$s;
-	$arg_array[2] = $x*$z*(1-$c)+$y*$s;
-        $arg_array[3] = 0;
-	$arg_array[4] = $y*$x*(1-$c)+$z*$s;
-	$arg_array[5] = $y**2*(1-$c)+$c;
-	$arg_array[6] = $y*$z*(1-$c)-$x*$s;
-	$arg_array[7] = 0;
-	$arg_array[8] = $x*$z*(1-$c)-$y*$s;
-	$arg_array[9] = $y*$z*(1-$c)+$x*$s;
-	$arg_array[10] = $z**2*(1-$c)+$c;
-	$arg_array[11] = 0;
-	$arg_array[12] = 0;
-	$arg_array[13] = 0;
-	$arg_array[14] = 0;
-	$arg_array[15] = 1;
+	$argarray[0] = $x**2*(1-$c)+$c;
+	$argarray[1] = $x*$y*(1-$c)-$z*$s;
+	$argarray[2] = $x*$z*(1-$c)+$y*$s;
+        $argarray[3] = 0;
+	$argarray[4] = $y*$x*(1-$c)+$z*$s;
+	$argarray[5] = $y**2*(1-$c)+$c;
+	$argarray[6] = $y*$z*(1-$c)-$x*$s;
+	$argarray[7] = 0;
+	$argarray[8] = $x*$z*(1-$c)-$y*$s;
+	$argarray[9] = $y*$z*(1-$c)+$x*$s;
+	$argarray[10] = $z**2*(1-$c)+$c;
+	$argarray[11] = 0;
+	$argarray[12] = 0;
+	$argarray[13] = 0;
+	$argarray[14] = 0;
+	$argarray[15] = 1;
+	
+	for ($i = 0; $i < 4; $i++) {
+	    for ($j = 0; $j < 4; $j++) {
+		print qx(echo $argarray[$j*4+$i] | ./fp_hax) . "\n";
+	    }
+	}
     }	
-    if ($func =~ m/$mat_ops/g) {
+    elsif ($func =~ m/glTranslate/g) {
+	
+	$x = $argarray[0];
+	$y = $argarray[1];
+	$z = $argarray[2];
+
+
+	$argarray[0] = 1;
+	$argarray[1] = 0;
+	$argarray[2] = 0;
+	$argarray[3] = $x;
+	$argarray[4] = 0;
+	$argarray[5] = 1;
+	$argarray[6] = 0;
+	$argarray[7] = $y;
+	$argarray[8] = 0;
+	$argarray[9] = 0;
+	$argarray[10] = 1;
+	$argarray[11] = $z;
+	$argarray[12] = 0;
+	$argarray[13] = 0;
+	$argarray[14] = 0;
+	$argarray[15] = 1;
+	
+	for ($i = 0; $i < 4; $i++) {
+	    for ($j = 0; $j < 4; $j++) {
+		print qx(echo $argarray[$j*4+$i] | ./fp_hax) . "\n";
+	    }
+	}
+    }
+    elsif ($func =~ m/glScale/g) {
+	
+	$x = $argarray[0];
+	$y = $argarray[1];
+	$z = $argarray[2];
+
+
+	$argarray[0] = $x;
+	$argarray[1] = 0;
+	$argarray[2] = 0;
+	$argarray[3] = 0;
+	$argarray[4] = 0;
+	$argarray[5] = $y;
+	$argarray[6] = 0;
+	$argarray[7] = 0;
+	$argarray[8] = 0;
+	$argarray[9] = 0;
+	$argarray[10] = $z;
+	$argarray[11] = 0;
+	$argarray[12] = 0;
+	$argarray[13] = 0;
+	$argarray[14] = 0;
+	$argarray[15] = 1;
+	
+	for ($i = 0; $i < 4; $i++) {
+	    for ($j = 0; $j < 4; $j++) {
+		print qx(echo $argarray[$j*4+$i] | ./fp_hax) . "\n";
+	    }
+	}
+    }
+    elsif ($func =~ m/glViewport/g) {
+
+	$argarray[0] = $x    
+
+    }
+    elsif ($func =~ m/$mat_ops/g) {
 	for ($i = 0; $i < 4; $i++) {
 	    for ($j = 0; $j < 4; $j++) {
 		print qx(echo $argarray[$j*4+$i] | ./fp_hax) . "\n";
 	    }
 	}
     } 
-    elsif ($temp =~ m/$float_ops/g) {
+    elsif ($func =~ m/$float_ops/g) {
 	foreach $x (@argarray) {
 	    print qx(echo $x | ./fp_hax) . "\n";
 	}

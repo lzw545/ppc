@@ -1,11 +1,11 @@
 glViewport
-glVertex3f|glMultMatrix|glLoadMatrix|glRotate|glScale|glTranslate|glFrustum
+glColor|glVertex3|glMultMatrix|glLoadMatrix|glFrustum
 glMatrixMode
-glMultMatrix|glLoadMatrix|glRotate|glScale|glTranslate
+glMultMatrix|glLoadMatrix
 
 glBegin		0x00000001
 glEnd		0x00000002
-glVertex3f	0x80000303
+glVertex3	0x80000303
 glColor		0x80000304
 glMatrixMode	0x00000010
 glMultMatrix	0x80001011
