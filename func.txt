@@ -1,5 +1,5 @@
 glViewport
-glColor|glVertex3|glMultMatrix|glLoadMatrix|glFrustum
+glColor|glVertex3|glFrustum
 glMatrixMode
 glMultMatrix|glLoadMatrix
 
