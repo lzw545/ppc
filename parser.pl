@@ -163,7 +163,19 @@ while ($source =~ m/(gl.[^\(]*)\(\s*([^;]*)\);/sg) {
     }
     elsif ($func =~ m/glViewport/g) {
 
-	$argarray[0] = $x    
+	$x = $argarray[0];
+	$y = $argarray[1];
+	$width = $argarray[2];
+	$height = $argarray[3];
+
+	$argarray[0] = $x;
+	$argarray[1] = $y;
+	$argarray[2] = $width/2;
+	$argarray[3] = $height/2;
+		
+	foreach $arg (@argarray) {
+	    print qx(echo $arg | ./fp_hax) . "\n";
+	}
 
     }
     elsif ($func =~ m/$mat_ops/g) {

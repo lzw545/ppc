@@ -8,6 +8,7 @@
 glTranslate (125 , 52, 12 );
 glScale (125 , 52, 12 );
 glRotate(180, 3, 4, 5);
+glViewport ( 4, 125, 52, 12);
 glMultMatrix( 36.2, 0.23, 0.5, 3.4, 
 	    0.5f , 
 	    253, 4, 1245,
