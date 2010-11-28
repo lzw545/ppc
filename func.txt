@@ -1,7 +1,7 @@
 glViewport
-glColor|glVertex3|glFrustum
+glColor|glLoadMatrix|glVertex3|glFrustum
 glMatrixMode
-glMultMatrix|glLoadMatrix
+glMultMatrix
 
 glBegin		0x00000001
 glEnd		0x00000002
